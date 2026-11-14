@@ -6,7 +6,7 @@
 <title>MamaAI – What should we cook today?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Text&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Text&family=Noto+Sans+Devanagari:wght@400;500;700&family=Noto+Sans+Kannada:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{--green:#2F5D46;--gold:#D9A441;--cream:#FAF6ED;--sage:#E6EDE3;--ink:#242B26;--card:#fff;--muted:#4d584f;--line:#d5dccf;--on-green:#FAF6ED;--link:#2F5D46;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
@@ -14,8 +14,8 @@ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:en
 :root[data-theme="dark"]{--green:#2F5D46;--cream:#1b211d;--sage:#242d27;--ink:#f1ede2;--card:#2a342d;--muted:#b9c4bb;--line:#3a463d;--link:#7DB596;color-scheme:dark}
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 4.5rem)}
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:var(--ink);font:400 1.0625rem/1.55 "DM Sans",system-ui,sans-serif;overflow-x:hidden}
-h1,h2,h3{font-family:"DM Serif Text",Georgia,serif;font-weight:400;line-height:1.1;margin:0}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 1.0625rem/1.55 "DM Sans","Noto Sans Devanagari","Noto Sans Kannada",system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:"DM Serif Text","Noto Sans Devanagari","Noto Sans Kannada",Georgia,serif;font-weight:400;line-height:1.1;margin:0}
 h1{font-size:clamp(2.6rem,10vw,4rem);color:var(--link);line-height:1.04}
 h2{font-size:clamp(1.8rem,6vw,2.6rem)}h3{font-size:1.35rem}
 p{margin:0}a{color:var(--link)}
@@ -37,13 +37,14 @@ section{padding:2.75rem 0}.alt{background:var(--sage)}.muted{color:var(--muted)}
 
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--cream);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;justify-content:space-between;min-height:3.75rem;gap:1rem}
-.logo{font:400 1.6rem "DM Serif Text",serif;color:var(--link);text-decoration:none}
+.logo{font:400 1.6rem "DM Serif Text","Noto Sans Devanagari","Noto Sans Kannada",serif;color:var(--link);text-decoration:none}
 #menu-btn{min-width:3rem;min-height:3rem;background:none;border:2px solid var(--line);border-radius:.6rem;color:var(--ink);font:700 .95rem "DM Sans",sans-serif;cursor:pointer}
 #nav{display:none;flex-direction:column;gap:.25rem;padding:0 0 1rem}
 #nav.open{display:flex}
 #nav a{color:var(--ink);text-decoration:none;font-weight:500;padding:.8rem .25rem;border-bottom:1px solid var(--line)}
 #nav a[aria-current="page"]{color:var(--link);font-weight:700}
 #nav .btn{margin-top:.5rem;border-bottom:2px solid var(--gold);color:#242B26}
+.lang{display:flex;gap:.25rem;margin-left:auto}.lang button{min-width:2.75rem;min-height:2.75rem;padding:0 .5rem;border:2px solid var(--line);border-radius:.6rem;background:none;color:var(--ink);font:700 .9rem "DM Sans","Noto Sans Devanagari","Noto Sans Kannada",sans-serif;cursor:pointer}.lang button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#FAF6ED}
 .page{display:none}.page.on{display:block}
 
 .hero h1{font-size:clamp(2.5rem,11vw,8rem);line-height:1.02;overflow-wrap:break-word;max-width:100%}
@@ -83,7 +84,7 @@ select,input[type=text],input[type=email],textarea{font:inherit;width:100%;min-h
 .plans{display:grid;gap:1rem;margin-top:1.5rem}
 .plan{background:var(--card);border:2px solid var(--line);border-radius:1.25rem;padding:1.5rem;display:flex;flex-direction:column;gap:.7rem}
 .plan.pick{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold)}
-.price{font:400 2.75rem/1 "DM Serif Text",serif}.price small{font:500 1rem "DM Sans",sans-serif;color:var(--muted)}
+.price{font:400 2.75rem/1 "DM Serif Text","Noto Sans Devanagari","Noto Sans Kannada",serif}.price small{font:500 1rem "DM Sans",sans-serif;color:var(--muted)}
 .limit{font-weight:700;color:var(--link)}.plan ul{margin:0;padding-left:1.2rem;flex:1;color:var(--muted)}
 .tag{background:var(--gold);color:#242B26;font-size:.85rem;font-weight:700;padding:.05rem .5rem;border-radius:.4rem}
 .facts{display:flex;flex-wrap:wrap;gap:.1rem 1.25rem;margin-top:1.25rem}
@@ -114,6 +115,7 @@ footer .wrap{display:grid;gap:.9rem}footer nav{display:flex;flex-wrap:wrap;gap:.
 <header><div class="wrap">
  <div class="bar">
   <a class="logo" href="#home">MamaAI</a>
+  <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en">EN</button><button type="button" data-lang="hi" lang="hi">हिं</button><button type="button" data-lang="kn" lang="kn">ಕನ್ನಡ</button></div>
   <button id="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
  </div>
  <nav id="nav" aria-label="Main">
@@ -232,6 +234,59 @@ function renderReviews(){var s=document.getElementById("reviews"),l=document.get
  REVIEWS.forEach(function(r){var b=document.createElement("blockquote"),p=document.createElement("p"),c=document.createElement("cite");p.textContent=r.quote;c.textContent=r.name;b.appendChild(p);b.appendChild(c);l.appendChild(b)});
  s.hidden=!REVIEWS.length;}
 renderReviews();
+var lang="en";
+var DICT=[
+["Home","होम","ಮುಖಪುಟ"],["How It Works","यह कैसे काम करता है","ಇದು ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ"],["Plans","प्लान","ಪ್ಲಾನ್‌ಗಳು"],["Contact","संपर्क करें","ಸಂಪರ್ಕಿಸಿ"],["Sign In","साइन इन","ಸೈನ್ ಇನ್"],["Plan Today’s Meal","आज का भोजन प्लान करें","ಇಂದಿನ ಊಟವನ್ನು ಯೋಜಿಸಿ"],["Menu","मेन्यू","ಮೆನು"],
+["What should we cook today?","आज हम क्या पकाएँ?","ಇಂದು ನಾವು ಏನು ಅಡುಗೆ ಮಾಡೋಣ?"],
+["Get meal ideas based on what your family likes, what’s in your kitchen, and what you’ve eaten recently.","अपने परिवार की पसंद, रसोई में मौजूद सामग्री और हाल में खाए गए भोजन के आधार पर भोजन के आइडिया पाएँ।","ನಿಮ್ಮ ಕುಟುಂಬದ ಇಷ್ಟ, ಅಡುಗೆಮನೆಯಲ್ಲಿರುವ ಪದಾರ್ಥಗಳು ಮತ್ತು ಇತ್ತೀಚೆಗೆ ಸೇವಿಸಿದ ಊಟದ ಆಧಾರದ ಮೇಲೆ ಊಟದ ಐಡಿಯಾಗಳನ್ನು ಪಡೆಯಿರಿ."],
+["View Subscription Plans","सब्सक्रिप्शन प्लान देखें","ಚಂದಾದಾರಿಕೆ ಪ್ಲಾನ್‌ಗಳನ್ನು ನೋಡಿ"],["See a Sample Meal Plan","नमूना भोजन प्लान देखें","ಮಾದರಿ ಊಟದ ಯೋಜನೆ ನೋಡಿ"],["Subscribe Now","अभी सब्सक्राइब करें","ಈಗಲೇ ಚಂದಾದಾರರಾಗಿ"],
+["Today’s Meal Plan","आज का भोजन प्लान","ಇಂದಿನ ಊಟದ ಯೋಜನೆ"],["Breakfast","नाश्ता","ಬೆಳಗಿನ ಉಪಾಹಾರ"],["Lunch","दोपहर का भोजन","ಮಧ್ಯಾಹ್ನದ ಊಟ"],["Dinner","रात का खाना","ರಾತ್ರಿಯ ಊಟ"],
+["Vegetable poha","वेजिटेबल पोहा","ತರಕಾರಿ ಅವಲಕ್ಕಿ"],["Rajma chawal with cucumber salad","खीरे के सलाद के साथ राजमा चावल","ಸೌತೆಕಾಯಿ ಸಲಾಡ್‌ನೊಂದಿಗೆ ರಾಜ್ಮಾ ಅನ್ನ"],["Roti, dal, and bhindi","रोटी, दाल और भिंडी","ರೊಟ್ಟಿ, ದಾಲ್ ಮತ್ತು ಬೆಂಡೆಕಾಯಿ"],
+["Why MamaAI","MamaAI क्यों","MamaAI ಏಕೆ"],["Meals for every family member","परिवार के हर सदस्य के लिए भोजन","ಕುಟುಂಬದ ಪ್ರತಿಯೊಬ್ಬರಿಗೂ ಊಟ"],
+["Plans suit different family members’ tastes and dietary needs.","प्लान परिवार के अलग-अलग सदस्यों की पसंद और खान-पान की ज़रूरतों के अनुसार बनते हैं।","ಯೋಜನೆಗಳು ಕುಟುಂಬದ ಸದಸ್ಯರ ವಿವಿಧ ರುಚಿ ಮತ್ತು ಆಹಾರ ಅಗತ್ಯಗಳಿಗೆ ಹೊಂದುತ್ತವೆ."],
+["Ideas using ingredients at home","घर की सामग्री से बने आइडिया","ಮನೆಯಲ್ಲಿರುವ ಪದಾರ್ಥಗಳಿಂದ ಐಡಿಯಾಗಳು"],
+["Add what’s in your kitchen so suggestions fit what you already have.","रसोई में जो है वह जोड़ें, ताकि सुझाव आपके पास मौजूद सामग्री के अनुसार हों।","ಅಡುಗೆಮನೆಯಲ್ಲಿರುವುದನ್ನು ಸೇರಿಸಿ, ಸಲಹೆಗಳು ನಿಮ್ಮ ಬಳಿ ಇರುವುದಕ್ಕೆ ಹೊಂದುತ್ತವೆ."],
+["Easy dish swaps","आसान डिश बदलाव","ಸುಲಭ ಖಾದ್ಯ ಬದಲಾವಣೆ"],["Choose another option without rebuilding the whole plan.","पूरा प्लान दोबारा बनाए बिना दूसरा विकल्प चुनें।","ಇಡೀ ಯೋಜನೆಯನ್ನು ಮತ್ತೆ ಮಾಡದೆ ಬೇರೆ ಆಯ್ಕೆ ಮಾಡಿ."],
+["Questions families ask","परिवारों के सवाल","ಕುಟುಂಬಗಳು ಕೇಳುವ ಪ್ರಶ್ನೆಗಳು"],
+["Can I add different food preferences for each family member?","क्या मैं हर सदस्य की अलग खान-पान पसंद जोड़ सकता/सकती हूँ?","ಪ್ರತಿ ಸದಸ್ಯರಿಗೆ ಬೇರೆ ಬೇರೆ ಆಹಾರ ಆದ್ಯತೆಗಳನ್ನು ಸೇರಿಸಬಹುದೇ?"],
+["Yes. Add each person’s likes, dislikes, allergies, and dietary needs to your family profile.","हाँ। अपनी फैमिली प्रोफ़ाइल में हर व्यक्ति की पसंद, नापसंद, एलर्जी और खान-पान की ज़रूरतें जोड़ें।","ಹೌದು. ನಿಮ್ಮ ಫ್ಯಾಮಿಲಿ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿ ಪ್ರತಿಯೊಬ್ಬರ ಇಷ್ಟ, ಇಷ್ಟವಿಲ್ಲದ್ದು, ಅಲರ್ಜಿ ಮತ್ತು ಆಹಾರ ಅಗತ್ಯಗಳನ್ನು ಸೇರಿಸಿ."],
+["Can MamaAI use ingredients I already have?","क्या MamaAI मेरे पास मौजूद सामग्री का उपयोग कर सकता है?","ನನ್ನ ಬಳಿ ಇರುವ ಪದಾರ್ಥಗಳನ್ನು MamaAI ಬಳಸಬಹುದೇ?"],
+["Yes. Tell MamaAI what’s in your kitchen and which meals you’ve eaten recently.","हाँ। MamaAI को बताएँ कि रसोई में क्या है और हाल में आपने कौन-से भोजन खाए हैं।","ಹೌದು. ಅಡುಗೆಮನೆಯಲ್ಲಿ ಏನಿದೆ ಮತ್ತು ಇತ್ತೀಚೆಗೆ ಯಾವ ಊಟ ಮಾಡಿದ್ದೀರಿ ಎಂದು MamaAI ಗೆ ತಿಳಿಸಿ."],
+["Can I change a dish I don’t want?","क्या मैं कोई पसंद न आने वाली डिश बदल सकता/सकती हूँ?","ನನಗೆ ಬೇಡವಾದ ಖಾದ್ಯವನ್ನು ಬದಲಾಯಿಸಬಹುದೇ?"],
+["Yes. Choose another option for that dish without rebuilding the whole plan.","हाँ। पूरा प्लान दोबारा बनाए बिना उस डिश के लिए दूसरा विकल्प चुनें।","ಹೌದು. ಇಡೀ ಯೋಜನೆಯನ್ನು ಮತ್ತೆ ಮಾಡದೆ ಆ ಖಾದ್ಯಕ್ಕೆ ಬೇರೆ ಆಯ್ಕೆ ಮಾಡಿ."],
+["What does Family Plus include?","Family Plus में क्या शामिल है?","Family Plus ನಲ್ಲಿ ಏನು ಸೇರಿದೆ?"],
+["Family Plus covers up to 10 members and adds cat and dog profiles, food reminders, pantry items, and schedules.","Family Plus में 10 सदस्यों तक शामिल हैं, साथ में बिल्ली और कुत्ते की प्रोफ़ाइल, भोजन रिमाइंडर, पेंट्री आइटम और शेड्यूल मिलते हैं।","Family Plus ನಲ್ಲಿ 10 ಸದಸ್ಯರವರೆಗೆ, ಜೊತೆಗೆ ಬೆಕ್ಕು ಮತ್ತು ನಾಯಿ ಪ್ರೊಫೈಲ್‌ಗಳು, ಆಹಾರ ರಿಮೈಂಡರ್‌ಗಳು, ಪ್ಯಾಂಟ್ರಿ ಐಟಂಗಳು ಮತ್ತು ವೇಳಾಪಟ್ಟಿಗಳು ಸೇರಿವೆ."],
+["Let’s sort out tonight’s dinner.","आज रात के खाने का इंतज़ाम करें।","ಇಂದು ರಾತ್ರಿಯ ಊಟವನ್ನು ಯೋಜಿಸೋಣ."],
+["How it works","यह कैसे काम करता है","ಇದು ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ"],["Here’s what you’ll enter and what you’ll get back.","आप क्या डालेंगे और बदले में क्या पाएँगे, यह यहाँ देखें।","ನೀವು ಏನು ನಮೂದಿಸುತ್ತೀರಿ ಮತ್ತು ಏನು ಪಡೆಯುತ್ತೀರಿ ಎಂಬುದು ಇಲ್ಲಿದೆ."],
+["Set up your family profile","अपनी फैमिली प्रोफ़ाइल बनाएँ","ನಿಮ್ಮ ಫ್ಯಾಮಿಲಿ ಪ್ರೊಫೈಲ್ ರಚಿಸಿ"],["Add who’s eating, their food preferences, and any allergies or restrictions.","कौन खा रहा है, उनकी खान-पान की पसंद, और कोई एलर्जी या पाबंदी जोड़ें।","ಯಾರು ಊಟ ಮಾಡುತ್ತಾರೆ, ಅವರ ಆಹಾರ ಆದ್ಯತೆಗಳು ಮತ್ತು ಅಲರ್ಜಿ ಅಥವಾ ನಿರ್ಬಂಧಗಳನ್ನು ಸೇರಿಸಿ."],
+["Tell MamaAI what’s in your kitchen","MamaAI को बताएँ कि आपकी रसोई में क्या है","ನಿಮ್ಮ ಅಡುಗೆಮನೆಯಲ್ಲಿ ಏನಿದೆ ಎಂದು MamaAI ಗೆ ತಿಳಿಸಿ"],["Add ingredients you have and meals you’ve eaten recently.","आपके पास मौजूद सामग्री और हाल में खाए भोजन जोड़ें।","ನಿಮ್ಮ ಬಳಿ ಇರುವ ಪದಾರ್ಥಗಳು ಮತ್ತು ಇತ್ತೀಚೆಗೆ ಮಾಡಿದ ಊಟಗಳನ್ನು ಸೇರಿಸಿ."],
+["Get a meal plan","भोजन प्लान पाएँ","ಊಟದ ಯೋಜನೆ ಪಡೆಯಿರಿ"],["See suggested dishes, portions, recipes, and grocery needs.","सुझाई गई डिश, मात्रा, रेसिपी और किराने की ज़रूरतें देखें।","ಸೂಚಿಸಿದ ಖಾದ್ಯಗಳು, ಪ್ರಮಾಣ, ಪಾಕವಿಧಾನಗಳು ಮತ್ತು ದಿನಸಿ ಅಗತ್ಯಗಳನ್ನು ನೋಡಿ."],
+["Swap a dish if needed","ज़रूरत हो तो डिश बदलें","ಅಗತ್ಯವಿದ್ದರೆ ಖಾದ್ಯ ಬದಲಿಸಿ"],["Create My Family Profile","मेरी फैमिली प्रोफ़ाइल बनाएँ","ನನ್ನ ಫ್ಯಾಮಿಲಿ ಪ್ರೊಫೈಲ್ ರಚಿಸಿ"],
+["Choose a plan for your household. Compare what’s included before you subscribe.","अपने परिवार के लिए प्लान चुनें। सब्सक्राइब करने से पहले देखें कि उसमें क्या शामिल है।","ನಿಮ್ಮ ಮನೆಗೆ ಪ್ಲಾನ್ ಆರಿಸಿ. ಚಂದಾದಾರರಾಗುವ ಮೊದಲು ಏನು ಒಳಗೊಂಡಿದೆ ಎಂದು ಹೋಲಿಸಿ."],
+["Find My MamaAI Plan","मेरा MamaAI प्लान खोजें","ನನ್ನ MamaAI ಪ್ಲಾನ್ ಹುಡುಕಿ"],["How many family members need meal planning?","कितने परिवार सदस्यों के लिए भोजन प्लान चाहिए?","ಎಷ್ಟು ಕುಟುಂಬ ಸದಸ್ಯರಿಗೆ ಊಟದ ಯೋಜನೆ ಬೇಕು?"],
+["Does your household want any of these?","क्या आपके परिवार को इनमें से कुछ चाहिए?","ನಿಮ್ಮ ಮನೆಗೆ ಇವುಗಳಲ್ಲಿ ಏನಾದರೂ ಬೇಕೇ?"],["Cat or dog profiles","बिल्ली या कुत्ते की प्रोफ़ाइल","ಬೆಕ್ಕು ಅಥವಾ ನಾಯಿ ಪ್ರೊಫೈಲ್‌ಗಳು"],["Food reminders","भोजन रिमाइंडर","ಆಹಾರ ರಿಮೈಂಡರ್‌ಗಳು"],
+["Daily meal planning","रोज़ाना भोजन प्लानिंग","ದೈನಂದಿನ ಊಟದ ಯೋಜನೆ"],["Basic grocery support","बुनियादी किराना सहायता","ಮೂಲ ದಿನಸಿ ಬೆಂಬಲ"],["Recipe support","रेसिपी सहायता","ಪಾಕವಿಧಾನ ಬೆಂಬಲ"],["More meal-planning options","भोजन प्लानिंग के और विकल्प","ಹೆಚ್ಚಿನ ಊಟದ ಯೋಜನಾ ಆಯ್ಕೆಗಳು"],
+["Expanded household planning","विस्तृत घरेलू प्लानिंग","ವಿಸ್ತೃತ ಮನೆ ಯೋಜನೆ"],["Cat and dog profiles","बिल्ली और कुत्ते की प्रोफ़ाइल","ಬೆಕ್ಕು ಮತ್ತು ನಾಯಿ ಪ್ರೊಫೈಲ್‌ಗಳು"],["Food reminders, pantry items, and schedules","भोजन रिमाइंडर, पेंट्री आइटम और शेड्यूल","ಆಹಾರ ರಿಮೈಂಡರ್‌ಗಳು, ಪ್ಯಾಂಟ್ರಿ ಐಟಂಗಳು ಮತ್ತು ವೇಳಾಪಟ್ಟಿಗಳು"],
+["Pets","पालतू","ಸಾಕುಪ್ರಾಣಿ"],["/ month","/ माह","/ ತಿಂಗಳು"],["Billing","बिलिंग","ಬಿಲ್ಲಿಂಗ್"],["Cancellation","रद्दीकरण","ರದ್ದತಿ"],["Refund information","रिफ़ंड की जानकारी","ಮರುಪಾವತಿ ಮಾಹಿತಿ"],["Refund policy","रिफ़ंड नीति","ಮರುಪಾವತಿ ನೀತಿ"],
+["Need help with your meal planning, family profile, or subscription?","भोजन प्लानिंग, फैमिली प्रोफ़ाइल या सब्सक्रिप्शन में मदद चाहिए?","ಊಟದ ಯೋಜನೆ, ಫ್ಯಾಮಿಲಿ ಪ್ರೊಫೈಲ್ ಅಥವಾ ಚಂದಾದಾರಿಕೆಯಲ್ಲಿ ಸಹಾಯ ಬೇಕೇ?"],
+["Name","नाम","ಹೆಸರು"],["Email","ईमेल","ಇಮೇಲ್"],["Topic","विषय","ವಿಷಯ"],["Message","संदेश","ಸಂದೇಶ"],["Send message","संदेश भेजें","ಸಂದೇಶ ಕಳುಹಿಸಿ"],["Meal planning","भोजन प्लानिंग","ಊಟದ ಯೋಜನೆ"],["Family profile","फैमिली प्रोफ़ाइल","ಫ್ಯಾಮಿಲಿ ಪ್ರೊಫೈಲ್"],["Subscription","सब्सक्रिप्शन","ಚಂದಾದಾರಿಕೆ"],
+["Official support","आधिकारिक सहायता","ಅಧಿಕೃತ ಬೆಂಬಲ"],["Help & Support Center","सहायता और सपोर्ट केंद्र","ಸಹಾಯ ಮತ್ತು ಬೆಂಬಲ ಕೇಂದ್ರ"],["Privacy","गोपनीयता","ಗೌಪ್ಯತೆ"],["Terms","शर्तें","ನಿಯಮಗಳು"]];
+var DM={};DICT.forEach(function(r){DM[r[0]]={hi:r[1],kn:r[2]}});
+var DYN={en:{enter:"Enter how many family members need meal planning.",talk:"Let’s talk about your household",big:"Our largest plan, Family Plus, covers up to 10 members. For a household of {s}, please contact support.",cs:"Contact Support",rec:"Recommended for you",w1:"cat and dog profiles",w2:"food reminders",w3:"cat and dog profiles and food reminders",whyx:"Family Plus includes {w}, and covers up to 10 members, so it fits your household of {s}.",why:"{plan} covers up to {max} members, so it fits your household of {s} without extras you don’t need.",save:"You save {amt} a month compared with {plan} ({price}).",top:"Family Plus is our highest plan."},
+hi:{enter:"कितने परिवार सदस्यों के लिए भोजन प्लान चाहिए, यह भरें।",talk:"आइए आपके परिवार के बारे में बात करें",big:"हमारा सबसे बड़ा प्लान Family Plus 10 सदस्यों तक के लिए है। {s} सदस्यों के परिवार के लिए कृपया सपोर्ट से संपर्क करें।",cs:"सपोर्ट से संपर्क करें",rec:"आपके लिए सुझाया गया",w1:"बिल्ली और कुत्ते की प्रोफ़ाइल",w2:"भोजन रिमाइंडर",w3:"बिल्ली और कुत्ते की प्रोफ़ाइल और भोजन रिमाइंडर",whyx:"Family Plus में {w} शामिल हैं और यह 10 सदस्यों तक के लिए है, इसलिए यह {s} सदस्यों के आपके परिवार के लिए सही है।",why:"{plan} {max} सदस्यों तक के लिए है, इसलिए यह {s} सदस्यों के आपके परिवार के लिए सही है, बिना ऐसे अतिरिक्त फ़ीचर के जिनकी आपको ज़रूरत नहीं।",save:"{plan} ({price}) की तुलना में आप हर महीने {amt} बचाते हैं।",top:"Family Plus हमारा सबसे ऊँचा प्लान है।"},
+kn:{enter:"ಊಟದ ಯೋಜನೆ ಬೇಕಾದ ಕುಟುಂಬ ಸದಸ್ಯರ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.",talk:"ನಿಮ್ಮ ಮನೆಯ ಬಗ್ಗೆ ಮಾತನಾಡೋಣ",big:"ನಮ್ಮ ದೊಡ್ಡ ಪ್ಲಾನ್ Family Plus 10 ಸದಸ್ಯರವರೆಗೆ ಇದೆ. {s} ಸದಸ್ಯರ ಮನೆಗೆ ದಯವಿಟ್ಟು ಬೆಂಬಲವನ್ನು ಸಂಪರ್ಕಿಸಿ.",cs:"ಬೆಂಬಲವನ್ನು ಸಂಪರ್ಕಿಸಿ",rec:"ನಿಮಗಾಗಿ ಶಿಫಾರಸು",w1:"ಬೆಕ್ಕು ಮತ್ತು ನಾಯಿ ಪ್ರೊಫೈಲ್‌ಗಳು",w2:"ಆಹಾರ ರಿಮೈಂಡರ್‌ಗಳು",w3:"ಬೆಕ್ಕು ಮತ್ತು ನಾಯಿ ಪ್ರೊಫೈಲ್‌ಗಳು ಮತ್ತು ಆಹಾರ ರಿಮೈಂಡರ್‌ಗಳು",whyx:"Family Plus ನಲ್ಲಿ {w} ಸೇರಿವೆ ಮತ್ತು 10 ಸದಸ್ಯರವರೆಗೆ ಇದೆ, ಆದ್ದರಿಂದ ಇದು {s} ಸದಸ್ಯರ ನಿಮ್ಮ ಮನೆಗೆ ಹೊಂದುತ್ತದೆ.",why:"{plan} {max} ಸದಸ್ಯರವರೆಗೆ ಇದೆ, ಆದ್ದರಿಂದ ಇದು ನಿಮಗೆ ಬೇಡದ ಹೆಚ್ಚುವರಿ ಇಲ್ಲದೆ {s} ಸದಸ್ಯರ ನಿಮ್ಮ ಮನೆಗೆ ಹೊಂದುತ್ತದೆ.",save:"{plan} ({price}) ಗೆ ಹೋಲಿಸಿದರೆ ನೀವು ತಿಂಗಳಿಗೆ {amt} ಉಳಿಸುತ್ತೀರಿ.",top:"Family Plus ನಮ್ಮ ಅತ್ಯುನ್ನತ ಪ್ಲಾನ್."}};
+function dy(k,v){var s=DYN[lang][k]||DYN.en[k];for(var x in v)s=s.split("{"+x+"}").join(v[x]);return s}
+function tr(k){if(k==="Choose")return lang==="en"?"Choose":"";var m=DM[k];return lang==="en"||!m?k:m[lang]}
+function xl(en){var k=en.trim(),m=DM[k];if(m)return en.replace(k,m[lang]);
+ var a=k.match(/^Up to (\d+) members$/);if(a)return lang==="hi"?a[1]+" सदस्यों तक":"ಸದಸ್ಯರವರೆಗೆ ".replace("ಸದಸ್ಯರವರೆಗೆ ",a[1]+" ಸದಸ್ಯರವರೆಗೆ");
+ var c=k.match(/^Choose (Family \w+)$/);if(c)return lang==="hi"?c[1]+" चुनें":c[1]+" ಆರಿಸಿ";return en}
+function applyLang(){document.documentElement.lang=lang;
+ var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){var p=n.parentNode;if(!p||/^(SCRIPT|STYLE)$/.test(p.nodeName)||p.closest("#fit,#rev-list,.lang")||!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}});
+ var n;while(n=w.nextNode()){if(n.__en===undefined)n.__en=n.nodeValue;n.nodeValue=lang==="en"?n.__en:xl(n.__en)}
+ document.querySelectorAll(".lang button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.lang===lang)});
+ fit();}
+function setLang(l){lang=l;try{localStorage.setItem("mamaai-lang",l)}catch(e){}applyLang()}
+document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.lang)})});
 var pages=["home","how","plans","contact"],nav=document.getElementById("nav"),mb=document.getElementById("menu-btn");
 function route(){var h=location.hash.slice(1);var f=h==="faq"||h==="sample";var p=pages.indexOf(h)>-1?h:"home";
  pages.forEach(function(x){document.getElementById("p-"+x).classList.toggle("on",x===p)});
@@ -245,19 +300,21 @@ var PL={starter:{n:"Family Starter",p:399,max:4},premium:{n:"Family Premium",p:5
 function inr(v){return "\u20B9"+v.toLocaleString("en-IN")}
 function fit(){var s=parseInt(document.getElementById("size").value,10),pet=document.getElementById("pets").checked,rem=document.getElementById("rem").checked,out=document.getElementById("fit"),k=null;
  ["starter","premium","plus"].forEach(function(x){document.getElementById("pl-"+x).classList.remove("pick")});
- if(!(s>=1)){out.innerHTML='<div class="res"><p>Enter how many family members need meal planning.</p></div>';return}
- if(s>10){out.innerHTML='<div class="res"><h3>Let\u2019s talk about your household</h3><p class="why">Our largest plan, Family Plus, covers up to 10 members. For a household of '+s+', please contact support.</p><a class="btn green" href="#contact">Contact Support</a></div>';return}
+ if(!(s>=1)){out.innerHTML='<div class="res"><p>'+dy("enter")+'</p></div>';return}
+ if(s>10){out.innerHTML='<div class="res"><h3>'+dy("talk")+'</h3><p class="why">'+dy("big",{s:s})+'</p><a class="btn green" href="#contact">'+dy("cs")+'</a></div>';return}
  var extras=pet||rem;k=extras?"plus":s<=4?"starter":s<=6?"premium":"plus";
  var p=PL[k],why;
- if(extras){var w=(pet&&rem)?"cat and dog profiles and food reminders":pet?"cat and dog profiles":"food reminders";why="Family Plus includes "+w+", and covers up to 10 members, so it fits your household of "+s+".";}
- else why=p.n+" covers up to "+p.max+" members, so it fits your household of "+s+" without extras you don\u2019t need.";
+ if(extras){why=dy("whyx",{w:dy((pet&&rem)?"w3":pet?"w1":"w2"),s:s});}
+ else why=dy("why",{plan:p.n,max:p.max,s:s});
  var nx=k==="starter"?PL.premium:k==="premium"?PL.plus:null;
- var sv=nx?"You save "+inr(nx.p-p.p)+" a month compared with "+nx.n+" ("+inr(nx.p)+").":"Family Plus is our highest plan.";
- out.innerHTML='<div class="res"><p class="muted">Recommended for you</p><h3>'+p.n+'</h3><div class="price">'+inr(p.p)+' <small>/ month</small></div><p class="why">'+why+'</p><p class="save">'+sv+'</p><a class="btn" id="choose" href="'+(LINKS[k]||"#plans")+'">Choose '+p.n+'</a></div>';
+ var sv=nx?dy("save",{amt:inr(nx.p-p.p),plan:nx.n,price:inr(nx.p)}):dy("top");
+ out.innerHTML='<div class="res"><p class="muted">'+dy("rec")+'</p><h3>'+p.n+'</h3><div class="price">'+inr(p.p)+' <small>'+tr("/ month")+'</small></div><p class="why">'+why+'</p><p class="save">'+sv+'</p><a class="btn" id="choose" href="'+(LINKS[k]||"#plans")+'">'+tr("Choose")+" "+p.n+(lang==="en"?"":(lang==="hi"?" चुनें":" ಆರಿಸಿ"))+'</a></div>';
  document.getElementById("pl-"+k).classList.add("pick");}
 function bump(d){var i=document.getElementById("size"),v=(parseInt(i.value,10)||0)+d;i.value=Math.min(99,Math.max(1,v));fit();}
 document.getElementById("inc").onclick=function(){bump(1)};document.getElementById("dec").onclick=function(){bump(-1)};
 ["size","pets","rem"].forEach(function(x){var e=document.getElementById(x);e.addEventListener("input",fit);e.addEventListener("change",fit)});fit();
+try{var sl=localStorage.getItem("mamaai-lang");if(sl&&DYN[sl])lang=sl}catch(e){}
+applyLang();
 document.getElementById("cf").addEventListener("submit",function(e){e.preventDefault();
  var b="Name: "+n.value+"\nEmail: "+e.target.e.value+"\n\n"+m.value;
  location.href="mailto:admin@mamaai.in?subject="+encodeURIComponent("MamaAI: "+t.value)+"&body="+encodeURIComponent(b);});
